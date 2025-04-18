@@ -22,7 +22,6 @@ header::before {
 }
 header h1 {
     font-size: 48px;
-    font-family: 'Creepster', cursive;
     color: #ff4d4d;
     position: relative;
     z-index: 1;
