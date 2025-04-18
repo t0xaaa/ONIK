@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Night In Ktyis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>One Night In Ktyis</h1>
+        <p>Ты готов встретиться с тем, что скрывается за стенами техникума?</p>
+
+    </header>
+
+    <section id="about">
+        <h2>О игре</h2>
+        <p>One Night In Ktyis — это хоррор-игра, где ты окажешься заперт в Ктуисе. Исследуй темные коридоры, решай головоломки и выживай, сталкиваясь с паранормальными явлениями.</p>
+        <a href="https://avatars.mds.yandex.net/i?id=d9a036a5d0aca8bfa641c47c20ec7f89_l-8389316-images-thumbs&n=13" class="button">Скачать игру</a>
+
+    </section>
+    <div class="carousel-main">
+        <div class="carousel">
+            <img src="./icons/maxresdefault2.jpg" alt="Image 1" class="active">
+            <img src="./icons/maxresdefault.jpg" alt="Image 2">
+            <img src="./icons/12.jpg" alt="Image 3">
+            <img src="./icons/23.jpg" alt="Image 4">
+            <img src="./icons/34.jpg" alt="Image 5">
+
+            <!-- Кнопки управления -->
+            <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+    <a href="https://avatars.mds.yandex.net/i?id=d9a036a5d0aca8bfa641c47c20ec7f89_l-8389316-images-thumbs&n=13" class="buttons"></a>
+    <footer>
+        &copy; 2025 CCG-Cats Counter Games. Все права защищены. | <a href="mailto:contact@shadowboundacademy.com">Связаться с нами</a>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+      
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+
+        
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+        setInterval(nextSlide, 10000);
+
+        showSlide(currentIndex);
+    </script>
+</body>
+</html>
