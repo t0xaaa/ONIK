@@ -1,10 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #000000, #1a1a1a);
     color: #e0e0e0;
     overflow-x: hidden;
-    
 }
 header {
     text-align: center;
@@ -33,6 +31,28 @@ header p {
     font-size: 20px;
     position: relative;
     z-index: 1;
+}
+.blood-text {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(to bottom, transparent 50%, red 50%);
+    background-size: 100% 200%;
+    background-position: top;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: blood-flow 3s ease-in-out forwards;
+}
+
+@keyframes blood-flow {
+    0% {
+        background-position: top;
+    }
+    100% {
+        background-position: bottom;
+    }
 }
 .buttons {
     display: inline-block;
@@ -132,22 +152,6 @@ footer a:hover {
 .carousel-control.next {
     right: 10px;
 }
-@media (max-width: 768px) {
-    .carousel {
-        width: 100%;
-        height: auto;
-    }
-
-    .carousel img {
-        height: auto;
-    }
-
-    .carousel-control {
-        padding: 8px;
-        font-size: 16px;
-    }
-}
-
 .indicators {
     position: absolute;
     bottom: 10px;
@@ -170,4 +174,19 @@ footer a:hover {
 
 .indicators button.active {
     background-color: #fff;
+}
+@media (max-width: 768px) {
+    .carousel {
+        width: 500px;
+        height: 300px;
+    }
+
+    .carousel img {
+        height: 300px;
+    }
+
+    .carousel-control {
+        padding: 8px;
+        font-size: 16px;
+    }
 }
