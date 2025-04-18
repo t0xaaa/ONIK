@@ -16,7 +16,7 @@
     <section id="about">
         <h2>О игре</h2>
         <p>One Night In Ktyis — это хоррор-игра, где ты окажешься заперт в Ктуисе. Исследуй темные коридоры, решай головоломки и выживай, сталкиваясь с паранормальными явлениями.</p>
-        <a href="https://avatars.mds.yandex.net/i?id=d9a036a5d0aca8bfa641c47c20ec7f89_l-8389316-images-thumbs&n=13" class="button">Скачать игру</a>
+        <a href="#download" class="button">Скачать игру</a>
 
     </section>
     <div class="carousel-main">
@@ -30,6 +30,7 @@
             <!-- Кнопки управления -->
             <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
             <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+            <div class="indicators" id="indicators"></div>
         </div>
     </div>
     <a href="https://avatars.mds.yandex.net/i?id=d9a036a5d0aca8bfa641c47c20ec7f89_l-8389316-images-thumbs&n=13" class="buttons"></a>
@@ -64,6 +65,46 @@
         setInterval(nextSlide, 10000);
 
         showSlide(currentIndex);
+
+         const indicatorsContainer = document.getElementById('indicators');
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('button');
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(currentIndex);
+            });
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        
+        function updateIndicators(activeIndex) {
+            const indicators = document.querySelectorAll('.indicators button');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+        
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+                nextSlide();
+            } else if (touchEndX > touchStartX) {
+                prevSlide();
+            }
+        }
     </script>
 </body>
 </html>

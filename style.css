@@ -132,3 +132,42 @@ footer a:hover {
 .carousel-control.next {
     right: 10px;
 }
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel img {
+        height: auto;
+    }
+
+    .carousel-control {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicators button {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicators button.active {
+    background-color: #fff;
+}
